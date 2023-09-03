@@ -34,7 +34,7 @@ export const FeaturedListing = () => {
 
   return (
     <Box>
-      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+      <Grid container rowSpacing={5} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         {listingsData.length === 0 ? (
           <Grid item>
             <div className="error-message">
@@ -43,26 +43,24 @@ export const FeaturedListing = () => {
           </Grid>
         ) : (
           listingsData.map((ele, index) => (
-
-         
           <Grid item xs={12} sm={6} md={3}>
             <Card sx={{ maxWidth: 345 }}>
               <CardActionArea>
                 <CardMedia
                   component="img"
-                  height="140"
+                  height="200"
                   image={`/assets/real-estate-${index}.jpg`}
                   alt={ele.property_name}
                 />
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
+                  <Typography className="property-name" gutterBottom variant="h5" component="div">
                     {ele.property_name.slice(0, 6)}
                   </Typography>
                 </CardContent>
                 <CardActions>
                   <div className="listing-details">
                     <span className="property-price">Rs {ele.price}</span>
-                    <span className="property-city">Rs {ele.city.slice(0, 6)}</span>
+                    <span className="property-city">{ele.city.slice(0, 6)}</span>
                   </div>
                 </CardActions>
               </CardActionArea>
